@@ -33,11 +33,11 @@ def main():
 
 
 #vytvoření mřížky
-    def grid(x,y,w):
+    def grid_setup(x, y, w):
         for i in range(1,21):
-                #zadani x souradnic na zacatek
+            x = 20     #zadani x souradnic na zacatek
             y = y + 20  # začátek nové řady
-            for j in range(1, w + 1):
+            for j in range(1, 21):
                 #pygame kod
                 pygame.draw.line(screen, white, [x, y], [x + w, y])  #vrsek bunky
                 pygame.draw.line(screen, white, [x + w, y], [x + w, y + w])  #pravá strana
@@ -69,7 +69,7 @@ def main():
         pygame.display.update()
 
 
-    def bunka(x, y):
+    def bunka_setup(x, y):
         pygame.draw.rect(screen, green, (x + 1, y + 1, 18, 18), 0)
         pygame.display.update()
 
@@ -87,7 +87,7 @@ def main():
 
     #vykreslení bludiště
     def vykresleni(x, y):
-        bunka(x, y)  #počátek bludiště
+        bunka_setup(x, y)  #počátek bludiště
         stack.append((x, y))
         visited.append((x, y))
 
@@ -130,7 +130,7 @@ def main():
                     stack.append((x,y))
             else:
                 x, y = stack.pop()
-                bunka(x, y)
+                bunka_setup(x, y)
                 backtracking(x, y) #změna barvy na backtracking
 
 
@@ -140,13 +140,14 @@ def main():
             x, y = solution[x, y]
             reseni(x, y)
 
-x, y = 20, 20                     # starting position of grid
-#grid()             # 1st argument = x value, 2nd argument = y value, 3rd argument = width of cell
-vykresleni(x,y)               # call build the maze  function
-cesta_zpet(400, 400)         # call the plot solution function
+    x, y = 20, 20                     # starting position of grid
+    grid_setup(20, 20, 40)             # 1st argument = x value, 2nd argument = y value, 3rd argument = width of cell
+    vykresleni(x, y)               # call build the maze  function
+    cesta_zpet(400, 400)         # call the plot solution function
 
 
-
+if __name__ == "__main__":
+    main()
 # pygame cyklus
 running = True
 while running:
@@ -158,8 +159,6 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-if __name__ == "__main__":
-    main()
 
 """
 class Cell(turtle.Turtle):

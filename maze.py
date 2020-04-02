@@ -1,7 +1,7 @@
 import turtle
 
 t = turtle.Turtle()
-t.speed(1)
+t.speed(5)
 for i in range(3):
     t.forward(100)
     t.penup()
@@ -18,5 +18,9 @@ for i in range(3):
     t.forward(1)
 
 
-
+clone = t.clone()
+clone.color("blue")
+#clone.goto(90,100)
+clone.forward(20)
 turtle.done()
+
