@@ -2,10 +2,12 @@ import pygame
 import random
 import time
 
+
+slozitost = input("Zadejte složitost bludiště:")
 #pygame setup
-sirka = 500
-vyska = 500
-FPS = 30
+sirka = 800
+vyska = 800
+FPS = 60
 
 white = (255, 255, 255)
 green = (0,255, 0)
@@ -34,9 +36,9 @@ def main():
 
 #vytvoření mřížky
     def grid_setup(x, y, w):
-        for i in range(1,21):
+        for i in range(1, int(slozitost) + 1):    # generuje bludiště 20x20
             x = 20     #zadani x souradnic na zacatek
-            y = y + 20  # začátek nové řady
+            y = y + x  # začátek nové řady
             for j in range(1, 21):
                 #pygame kod
                 pygame.draw.line(screen, white, [x, y], [x + w, y])  #vrsek bunky
@@ -139,9 +141,10 @@ def main():
         while (x, y) != (20, 20): #dokud nejsou na počáteční pozici
             x, y = solution[x, y]
             reseni(x, y)
+        time.sleep(.1)
 
     x, y = 20, 20                     # starting position of grid
-    grid_setup(20, 20, 40)             # 1st argument = x value, 2nd argument = y value, 3rd argument = width of cell
+    grid_setup(20, 20, 20)             # 1st argument = x value, 2nd argument = y value, 3rd argument = width of cell
     vykresleni(x, y)               # call build the maze  function
     cesta_zpet(400, 400)         # call the plot solution function
 
