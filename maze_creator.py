@@ -40,7 +40,7 @@ def main():
         for i in range(1, int(slozitost) + 1):  # generuje bludiště 20x20
             x = 20  # zadani x souradnic na zacatek
             y = y + x  # začátek nové řady
-            for j in range(1, 21):
+            for j in range(1, int(slozitost) + 1):
                 # pygame kod
                 pygame.draw.line(screen, white, [x, y], [x + w, y])  # vrsek bunky
                 pygame.draw.line(screen, white, [x + w, y], [x + w, y + w])  # pravá strana
