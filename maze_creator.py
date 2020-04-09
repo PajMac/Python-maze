@@ -23,6 +23,7 @@ pygame.init()
 pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
+image = pygame.image.load("robot_PNG.png")
 
 # volba proměnných pro bludiště
 x = 0
@@ -76,7 +77,8 @@ def main():
         pygame.display.update()
 
     def reseni(x, y):
-        pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0)  # ukáže řešení
+        pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
+        #screen.blit(image, (20, 20))
         time.sleep(0.1)
         pygame.display.update()
 
@@ -154,30 +156,3 @@ while running:
         if event.type == pygame.QUIT:
             running = False
 
-"""
-class Cell(turtle.Turtle):
-    def __init__(self, x, y,):
-        turtle.Turtle.__init__(self,x,y)
-        self.x = x
-        self.y = y
-        self.g = 0
-        self.h = 0
-        self.f = 0
-        self.neihbours = []
-        self.visited = False
-        self.walls = [True,True,True,True]
-
-
-class Maze(turtle.Turtle):
-    def __init__(self, w, h):
-        turtle.Turtle.__init__(self, w, h)
-        self.cell = (w for i in range(h))
-        for x in range(w):
-            for y in range(h):
-                self.cell = Cell(x,y)
-
-#c1 = Cell(5,4), volaní objektu Cell
-
-Maze(10,10)
-turtle.done()
-"""
