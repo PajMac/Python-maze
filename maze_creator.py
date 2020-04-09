@@ -3,7 +3,13 @@ import random
 import time
 
 
-slozitost = input("Zadejte složitost bludiště:")
+slozitost = input("Zadejte složitost bludiště (více než 20):")
+
+slozitost = int(slozitost)
+while slozitost < 20:
+    slozitost = input("Zadej znovu")
+    slozitost = int(slozitost)
+
 #pygame setup
 sirka = 800
 vyska = 800
