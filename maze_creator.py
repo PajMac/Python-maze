@@ -26,6 +26,7 @@ clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
 pygame.display.set_icon(image)
+robot = pygame.image.load("robot.png")
 
 # volba proměnných pro bludiště
 x = 0
@@ -80,7 +81,7 @@ def main():
 
     def reseni(x, y):
         pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
-        #screen.blit(image, (200, 200))
+        screen.blit(robot, (x, y))
         time.sleep(0.1)
         pygame.display.update()
 
