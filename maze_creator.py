@@ -20,13 +20,14 @@ blue = (0, 0, 255)
 yellow = (255, 255, 0)
 
 pygame.init()
-pygame.mixer.init()
+#pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
 pygame.display.set_icon(image)
 robot = pygame.image.load("robot.png")
+robot = pygame.transform.scale(robot, (20, 20))
 
 # volba proměnných pro bludiště
 x = 0
@@ -80,7 +81,7 @@ def main():
         pygame.display.update()
 
     def reseni(x, y):
-        pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
+        #pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
         screen.blit(robot, (x, y))
         time.sleep(0.1)
         pygame.display.update()
@@ -149,7 +150,7 @@ def main():
 if __name__ == "__main__":
     main()
 # pygame cyklus
-running = True
+    running = True
 while running:
     clock.tick(FPS)
     for event in pygame.event.get():
