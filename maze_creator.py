@@ -24,6 +24,9 @@ pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
+pygame.display.set_caption("Robot maze")
+pygame.display.set_icon(image)
+robot = pygame.image.load("robot.png")
 
 # volba proměnných pro bludiště
 x = 0
@@ -78,7 +81,7 @@ def main():
 
     def reseni(x, y):
         pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
-        #screen.blit(image, (20, 20))
+        screen.blit(robot, (x, y))
         time.sleep(0.1)
         pygame.display.update()
 
@@ -148,11 +151,8 @@ if __name__ == "__main__":
 # pygame cyklus
 running = True
 while running:
-    # keep running at the at the right speed
     clock.tick(FPS)
-    # process input (events)
     for event in pygame.event.get():
-        # check for closing the window
         if event.type == pygame.QUIT:
             running = False
 
