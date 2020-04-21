@@ -5,9 +5,9 @@ import time
 slozitost = input("Zadejte složitost bludiště (více než 20):")
 
 slozitost = int(slozitost)
-while slozitost < 20:
-    slozitost = input("Zadej znovu")
-    slozitost = int(slozitost)
+#while slozitost < 20:
+#    slozitost = input("Zadej znovu")
+#    slozitost = int(slozitost)
 
 # pygame setup
 sirka = 800
@@ -31,7 +31,9 @@ robot = pygame.image.load("robot.png")
 robot = pygame.transform.scale(robot, (20, 20))
 bg_color = (125, 125, 125)
 screen.fill(bg_color)
-
+font = pygame.font.Font("freesansbold.ttf", 18)
+text = font.render("Start", True, (0, 0, 0), bg_color)
+screen.blit(text, (0, 0))
 
 # volba proměnných pro bludiště
 x = 0
