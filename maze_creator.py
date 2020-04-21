@@ -5,7 +5,7 @@ import time
 slozitost = input("Zadejte složitost bludiště (více než 20):")
 
 slozitost = int(slozitost)
-#while slozitost < 20:
+# while slozitost < 20:
 #    slozitost = input("Zadej znovu")
 #    slozitost = int(slozitost)
 
@@ -21,7 +21,7 @@ yellow = (255, 255, 0)
 black = (0, 0, 0)
 
 pygame.init()
-#pygame.mixer.init()
+# pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
@@ -38,7 +38,7 @@ font = pygame.font.Font("freesansbold.ttf", 18)
 text = font.render("Start", True, (0, 0, 0), bg_color)
 screen.blit(text, (0, 0))
 text = font.render("End", True, (0, 0, 0), bg_color)
-screen.blit(text, ((slozitost * 20) + 20, (slozitost * 20) + 20))
+screen.blit(text, ((slozitost * 20) + 35, (slozitost * 20) + 20))
 
 # volba proměnných pro bludiště
 x = 0
@@ -92,7 +92,7 @@ def main():
         pygame.display.update()
 
     def reseni(x, y):
-        #pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
+        # pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
         screen.blit(robot, (x, y))
         time.sleep(0.1)
         pygame.display.update()
@@ -160,11 +160,10 @@ def main():
 
 if __name__ == "__main__":
     main()
-# pygame cyklus
+    # pygame cyklus
     running = True
 while running:
     clock.tick(FPS)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
