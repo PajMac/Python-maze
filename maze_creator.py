@@ -27,10 +27,13 @@ clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
 pygame.display.set_icon(image)
+
 robot = pygame.image.load("robot.png")
 robot = pygame.transform.scale(robot, (20, 20))
+
 bg_color = (125, 125, 125)
 screen.fill(bg_color)
+
 font = pygame.font.Font("freesansbold.ttf", 18)
 text = font.render("Start", True, (0, 0, 0), bg_color)
 screen.blit(text, (0, 0))
