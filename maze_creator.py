@@ -18,6 +18,7 @@ white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 yellow = (255, 255, 0)
+black = (0, 0, 0)
 
 pygame.init()
 #pygame.mixer.init()
@@ -28,6 +29,9 @@ pygame.display.set_caption("Robot maze")
 pygame.display.set_icon(image)
 robot = pygame.image.load("robot.png")
 robot = pygame.transform.scale(robot, (20, 20))
+bg_color = (125, 125, 125)
+screen.fill(bg_color)
+
 
 # volba proměnných pro bludiště
 x = 0
@@ -47,28 +51,28 @@ def main():
             y = y + x  # začátek nové řady
             for j in range(1, int(slozitost) + 1):
                 # pygame kod
-                pygame.draw.line(screen, white, [x, y], [x + w, y])  # vrsek bunky
-                pygame.draw.line(screen, white, [x + w, y], [x + w, y + w])  # pravá strana
-                pygame.draw.line(screen, white, [x + w, y + w], [x, y + w])  # spodek buňky
-                pygame.draw.line(screen, white, [x, y + w], [x, y])  # levá strana buňky
+                pygame.draw.line(screen, black, [x, y], [x + w, y])  # vrsek bunky
+                pygame.draw.line(screen, black, [x + w, y], [x + w, y + w])  # pravá strana
+                pygame.draw.line(screen, black, [x + w, y + w], [x, y + w])  # spodek buňky
+                pygame.draw.line(screen, black, [x, y + w], [x, y])  # levá strana buňky
                 grid.append((x, y))
                 x = x + 20
 
     # pohyby
     def nahoru(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y - w + 1, 19, 39), 0)  # draw a rectangle twice the width of the cell
+        pygame.draw.rect(screen, white, (x + 1, y - w + 1, 19, 39), 0)  # draw a rectangle twice the width of the cell
         pygame.display.update()  # to animate the wall being removed
 
     def dolu(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y + 1, 19, 39), 0)
+        pygame.draw.rect(screen, white, (x + 1, y + 1, 19, 39), 0)
         pygame.display.update()
 
     def doleva(x, y):
-        pygame.draw.rect(screen, blue, (x - w + 1, y + 1, 39, 19), 0)
+        pygame.draw.rect(screen, white, (x - w + 1, y + 1, 39, 19), 0)
         pygame.display.update()
 
     def doprava(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y + 1, 39, 19), 0)
+        pygame.draw.rect(screen, white, (x + 1, y + 1, 39, 19), 0)
         pygame.display.update()
 
     def bunka_setup(x, y):
@@ -76,7 +80,7 @@ def main():
         pygame.display.update()
 
     def backtracking(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y + 1, 18, 18), 0)
+        pygame.draw.rect(screen, white, (x + 1, y + 1, 18, 18), 0)
         time.sleep(0.05)
         pygame.display.update()
 
