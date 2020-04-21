@@ -34,6 +34,8 @@ screen.fill(bg_color)
 font = pygame.font.Font("freesansbold.ttf", 18)
 text = font.render("Start", True, (0, 0, 0), bg_color)
 screen.blit(text, (0, 0))
+text = font.render("End", True, (0, 0, 0), bg_color)
+screen.blit(text, ((slozitost * 20) + 20, (slozitost * 20) + 20))
 
 # volba proměnných pro bludiště
 x = 0
@@ -150,7 +152,7 @@ def main():
     x, y = 20, 20  # starting position of grid
     grid_setup(20, 20, 20)  # 1st argument = x value, 2nd argument = y value, 3rd argument = width of cell
     vykresleni(x, y)  # call build the maze  function
-    cesta_zpet((20 * slozitost), (20 * slozitost))  # call the plot solution function
+    cesta_zpet((20 * slozitost), (20 * slozitost) + 20)  # call the plot solution function
 
 
 if __name__ == "__main__":
