@@ -144,7 +144,7 @@ def main():
     x, y = 20, 20  # starting position of grid
     grid_setup(20, 20, 20)  # 1st argument = x value, 2nd argument = y value, 3rd argument = width of cell
     vykresleni(x, y)  # call build the maze  function
-    cesta_zpet(400, 400)  # call the plot solution function
+    cesta_zpet((20 * slozitost), (20 * slozitost))  # call the plot solution function
 
 
 if __name__ == "__main__":
