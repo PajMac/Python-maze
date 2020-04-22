@@ -13,7 +13,6 @@ while slozitost < 5:
 sirka = 800
 vyska = 800
 
-
 white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 255)
@@ -26,7 +25,6 @@ screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
-
 
 robot = pygame.image.load("robot.png")
 robot = pygame.transform.scale(robot, (20, 20))
@@ -50,10 +48,10 @@ stack = []
 solution = {}
 
 
-
 def main():
     # vytvoření mřížky
     def grid_setup(x, y, w):
+
         for i in range(1, int(slozitost) + 1):  # generuje bludiště 20x20
             x = 20  # zadani x souradnic na zacatek
             y = y + x  # začátek nové řady
@@ -66,37 +64,52 @@ def main():
                 grid.append((x, y))
                 x = x + 20
 
-    # pohyby
+
+# pohyby
     def nahoru(x, y):
         pygame.draw.rect(screen, white, (x + 1, y - w + 1, 19, 39), 0)  # draw a rectangle twice the width of the cell
         pygame.display.update()  # to animate the wall being removed
+        pygame.event.pump()
+
 
     def dolu(x, y):
         pygame.draw.rect(screen, white, (x + 1, y + 1, 19, 39), 0)
         pygame.display.update()
+        pygame.event.pump()
+
 
     def doleva(x, y):
         pygame.draw.rect(screen, white, (x - w + 1, y + 1, 39, 19), 0)
         pygame.display.update()
+        pygame.event.pump()
+
 
     def doprava(x, y):
         pygame.draw.rect(screen, white, (x + 1, y + 1, 39, 19), 0)
         pygame.display.update()
+        pygame.event.pump()
+
 
     def bunka_setup(x, y):
         pygame.draw.rect(screen, green, (x + 1, y + 1, 18, 18), 0)
         pygame.display.update()
+        pygame.event.pump()
+
 
     def backtracking(x, y):
         pygame.draw.rect(screen, white, (x + 1, y + 1, 18, 18), 0)
         time.sleep(0.05)
         pygame.display.update()
+        pygame.event.pump()
+
 
     def reseni(x, y):
         # pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
         screen.blit(robot, (x, y))
         time.sleep(0.1)
         pygame.display.update()
+        pygame.event.pump()
+
 
     # vykreslení bludiště
     def vykresleni(x, y):
@@ -164,6 +177,8 @@ if __name__ == "__main__":
     # pygame cyklus
 running = True
 while running:
+    clock.tick(60)
     for event in pygame.event.get():
+        pygame.event.pump()
         if event.type == pygame.QUIT:
             running = False
