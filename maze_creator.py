@@ -1,4 +1,5 @@
-from bludiste.funkce import main
+import funkce
+funkce.main()
 import pygame
 import random
 import time
