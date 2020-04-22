@@ -1,4 +1,5 @@
-"""def main():
+__import__(funkce.py)
+def main():
     # vytvoření mřížky
     def grid_setup(x, y, w):
         for i in range(1, int(slozitost) + 1):  # generuje bludiště 20x20
@@ -99,4 +100,3 @@
                         reseni(x, y)
                     time.sleep(.1)
 
-"""
