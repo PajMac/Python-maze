@@ -1,4 +1,3 @@
-__import__(funkce.py)
 def main():
     # vytvoření mřížky
     def grid_setup(x, y, w):
@@ -99,4 +98,5 @@ def main():
                         x, y = solution[x, y]
                         reseni(x, y)
                     time.sleep(.1)
-
+if __name__ == "__main__":
+    main()
