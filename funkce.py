@@ -1,4 +1,7 @@
+import pygame
+
 def main():
+    slozitost = input("Zadejte složitost bludiště (Alespoň 20):")
     # vytvoření mřížky
     def grid_setup(x, y, w):
         for i in range(1, int(slozitost) + 1):  # generuje bludiště 20x20

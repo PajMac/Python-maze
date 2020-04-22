@@ -1,5 +1,3 @@
-import funkce
-funkce.main()
 import pygame
 import random
 import time
@@ -14,7 +12,7 @@ slozitost = int(slozitost)
 # pygame setup
 sirka = 800
 vyska = 800
-FPS = 60
+
 
 white = (255, 255, 255)
 green = (0, 255, 0)
@@ -23,12 +21,12 @@ yellow = (255, 255, 0)
 black = (0, 0, 0)
 
 pygame.init()
-# pygame.mixer.init()
+pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
-pygame.display.set_icon(image)
+
 
 robot = pygame.image.load("robot.png")
 robot = pygame.transform.scale(robot, (20, 20))
@@ -50,10 +48,9 @@ grid = []
 visited = []
 stack = []
 solution = {}
-main()
 
 
-"""
+
 def main():
     # vytvoření mřížky
     def grid_setup(x, y, w):
@@ -163,11 +160,10 @@ def main():
 
 
 if __name__ == "__main__":
-    main()"""
+    main()
     # pygame cyklus
 running = True
 while running:
-    clock.tick(FPS)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
