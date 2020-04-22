@@ -1,4 +1,4 @@
-import funkce
+from bludiste.funkce import main
 import pygame
 import random
 import time
@@ -49,6 +49,8 @@ grid = []
 visited = []
 stack = []
 solution = {}
+main()
+
 
 """
 def main():
@@ -160,8 +162,7 @@ def main():
 
 
 if __name__ == "__main__":
-"""
-#main()
+    main()"""
     # pygame cyklus
 running = True
 while running:
