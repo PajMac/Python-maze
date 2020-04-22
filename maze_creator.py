@@ -5,9 +5,9 @@ import time
 slozitost = input("Zadejte složitost bludiště (Alespoň 20):")
 
 slozitost = int(slozitost)
-while slozitost < 20:
-    slozitost = input("Zadej znovu")
-    slozitost = int(slozitost)
+# while slozitost < 20:
+#    slozitost = input("Zadej znovu")
+#    slozitost = int(slozitost)
 
 # pygame setup
 sirka = 800
@@ -18,16 +18,27 @@ white = (255, 255, 255)
 green = (0, 255, 0)
 blue = (0, 0, 255)
 yellow = (255, 255, 0)
+black = (0, 0, 0)
 
 pygame.init()
-#pygame.mixer.init()
+# pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
 pygame.display.set_icon(image)
+
 robot = pygame.image.load("robot.png")
 robot = pygame.transform.scale(robot, (20, 20))
+
+bg_color = (125, 125, 125)
+screen.fill(bg_color)
+
+font = pygame.font.Font("freesansbold.ttf", 18)
+text = font.render("Start", True, (0, 0, 0), bg_color)
+screen.blit(text, (0, 0))
+text = font.render("End", True, (0, 0, 0), bg_color)
+screen.blit(text, ((slozitost * 20) + 35, (slozitost * 20) + 20))
 
 # volba proměnných pro bludiště
 x = 0
@@ -47,28 +58,28 @@ def main():
             y = y + x  # začátek nové řady
             for j in range(1, int(slozitost) + 1):
                 # pygame kod
-                pygame.draw.line(screen, white, [x, y], [x + w, y])  # vrsek bunky
-                pygame.draw.line(screen, white, [x + w, y], [x + w, y + w])  # pravá strana
-                pygame.draw.line(screen, white, [x + w, y + w], [x, y + w])  # spodek buňky
-                pygame.draw.line(screen, white, [x, y + w], [x, y])  # levá strana buňky
+                pygame.draw.line(screen, black, [x, y], [x + w, y])  # vrsek bunky
+                pygame.draw.line(screen, black, [x + w, y], [x + w, y + w])  # pravá strana
+                pygame.draw.line(screen, black, [x + w, y + w], [x, y + w])  # spodek buňky
+                pygame.draw.line(screen, black, [x, y + w], [x, y])  # levá strana buňky
                 grid.append((x, y))
                 x = x + 20
 
     # pohyby
     def nahoru(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y - w + 1, 19, 39), 0)  # draw a rectangle twice the width of the cell
+        pygame.draw.rect(screen, white, (x + 1, y - w + 1, 19, 39), 0)  # draw a rectangle twice the width of the cell
         pygame.display.update()  # to animate the wall being removed
 
     def dolu(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y + 1, 19, 39), 0)
+        pygame.draw.rect(screen, white, (x + 1, y + 1, 19, 39), 0)
         pygame.display.update()
 
     def doleva(x, y):
-        pygame.draw.rect(screen, blue, (x - w + 1, y + 1, 39, 19), 0)
+        pygame.draw.rect(screen, white, (x - w + 1, y + 1, 39, 19), 0)
         pygame.display.update()
 
     def doprava(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y + 1, 39, 19), 0)
+        pygame.draw.rect(screen, white, (x + 1, y + 1, 39, 19), 0)
         pygame.display.update()
 
     def bunka_setup(x, y):
@@ -76,12 +87,12 @@ def main():
         pygame.display.update()
 
     def backtracking(x, y):
-        pygame.draw.rect(screen, blue, (x + 1, y + 1, 18, 18), 0)
+        pygame.draw.rect(screen, white, (x + 1, y + 1, 18, 18), 0)
         time.sleep(0.05)
         pygame.display.update()
 
     def reseni(x, y):
-        #pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
+        # pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
         screen.blit(robot, (x, y))
         time.sleep(0.1)
         pygame.display.update()
@@ -144,16 +155,15 @@ def main():
     x, y = 20, 20  # starting position of grid
     grid_setup(20, 20, 20)  # 1st argument = x value, 2nd argument = y value, 3rd argument = width of cell
     vykresleni(x, y)  # call build the maze  function
-    cesta_zpet(400, 400)  # call the plot solution function
+    cesta_zpet((20 * slozitost), (20 * slozitost) + 20)  # call the plot solution function
 
 
 if __name__ == "__main__":
     main()
-# pygame cyklus
+    # pygame cyklus
     running = True
 while running:
     clock.tick(FPS)
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
