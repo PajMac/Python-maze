@@ -25,7 +25,7 @@ screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
-
+pygame.display.set_icon(image)
 robot = pygame.image.load("robot.png")
 robot = pygame.transform.scale(robot, (20, 20))
 
@@ -38,6 +38,7 @@ screen.blit(text, (0, 0))
 text = font.render("Start", True, (0, 0, 0), bg_color)
 screen.blit(text, ((slozitost * 20) + 35, (slozitost * 20) + 20))
 
+
 # volba proměnných pro bludiště
 x = 0
 y = 0
@@ -46,7 +47,8 @@ grid = []
 visited = []
 stack = []
 solution = {}
-
+robotx = x
+roboty = y
 
 def main():
     # vytvoření mřížky
@@ -104,8 +106,10 @@ def main():
 
 
     def reseni(x, y):
-        # pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
+        #pygame.draw.rect(screen, yellow, (x + 8, y + 8, 5, 5), 0,) # ukáže řešení
         screen.blit(robot, (x, y))
+        #x= robotx + x
+        #y = roboty + y
         time.sleep(0.1)
         pygame.display.update()
         pygame.event.pump()
@@ -161,6 +165,7 @@ def main():
 
     def cesta_zpet(x, y):
         reseni(x, y)
+        #screen.blit(robot, (x, y))
         while (x, y) != (20, 20):  # dokud nejsou na počáteční pozici
             x, y = solution[x, y]
             reseni(x, y)
