@@ -5,17 +5,13 @@ import time
 slozitost = input("Zadejte složitost bludiště (od 5 do 40):")
 
 slozitost = int(slozitost)
-while slozitost < 5:
-    slozitost = input("Zadej znovu:")
-    slozitost = int(slozitost)
-
-while slozitost > 40:
+while slozitost < 5 or slozitost > 40:
     slozitost = input("Zadej znovu:")
     slozitost = int(slozitost)
 
 # pygame setup
-sirka = slozitost * 20 + 100
-vyska = slozitost * 20 + 100
+sirka = slozitost * 20 + 80
+vyska = slozitost * 20 + 70
 
 white = (255, 255, 255)
 green = (0, 255, 0)
