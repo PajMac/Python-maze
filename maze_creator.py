@@ -2,16 +2,20 @@ import pygame
 import random
 import time
 
-slozitost = input("Zadejte složitost bludiště (Alespoň 5):")
+slozitost = input("Zadejte složitost bludiště (od 5 do 40):")
 
 slozitost = int(slozitost)
 while slozitost < 5:
-    slozitost = input("Zadej znovu")
+    slozitost = input("Zadej znovu:")
+    slozitost = int(slozitost)
+
+while slozitost > 40:
+    slozitost = input("Zadej znovu:")
     slozitost = int(slozitost)
 
 # pygame setup
-sirka = 800
-vyska = 800
+sirka = slozitost * 20 + 100
+vyska = slozitost * 20 + 100
 
 white = (255, 255, 255)
 green = (0, 255, 0)
