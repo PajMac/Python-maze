@@ -36,7 +36,7 @@ font = pygame.font.Font("freesansbold.ttf", 18)
 text = font.render("End", True, (0, 0, 0), bg_color)
 screen.blit(text, (0, 0))
 text = font.render("Start", True, (0, 0, 0), bg_color)
-screen.blit(text, ((slozitost * 20) + 35, (slozitost * 20) + 20))
+screen.blit(text, ((slozitost * 20) + 30, (slozitost * 20) + 20))
 
 
 # volba proměnných pro bludiště
