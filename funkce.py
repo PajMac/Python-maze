@@ -47,8 +47,8 @@ grid = []
 visited = []
 stack = []
 solution = {}
-robotx = x
-roboty = y
+robotX = 0
+robotY = 0
 
 def main():
     # vytvoření mřížky
@@ -108,8 +108,17 @@ def main():
     def reseni(x, y):
         screen.blit(robot, (x, y))
         time.sleep(0.1)
+        #screen.fill((255, 255, 255), (x + 5, y + 5, 18, 18))
+        pygame.draw.line(screen, black, [x + 10, y + 10], [x + 10, y - 20])
+        #fill(x, y)
         pygame.display.update()
         pygame.event.pump()
+
+
+    def fill(x ,y):
+        time.sleep(0.2)
+        screen.fill((255, 255, 255), (x + 5, y + 5, 18, 18))
+        pygame.display.update()
 
 
     # vykreslení bludiště
