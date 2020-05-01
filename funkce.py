@@ -21,10 +21,10 @@ black = (0, 0, 0)
 
 pygame.init()
 screen = pygame.display.set_mode((sirka, vyska))
-image = pygame.image.load("metallic.png")
+image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
 
-robot = pygame.image.load("metallic.png")
+robot = pygame.image.load("robot_PNG.png")
 robot = pygame.transform.scale(robot, (20, 20))
 
 bg_color = (125, 125, 125)
@@ -91,7 +91,7 @@ def main():
 
 
     def bunka_setup(x, y):
-        pygame.draw.rect(screen, green, (x + 1, y + 1, 18, 18), 0)
+        pygame.draw.rect(screen, yellow, (x + 1, y + 1, 18, 18), 0)
         pygame.display.update()
         pygame.event.pump()
 
