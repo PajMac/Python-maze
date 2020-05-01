@@ -21,10 +21,10 @@ black = (0, 0, 0)
 
 pygame.init()
 screen = pygame.display.set_mode((sirka, vyska))
-image = pygame.image.load("robot.png")
+image = pygame.image.load("metallic.png")
 pygame.display.set_caption("Robot maze")
 
-robot = pygame.image.load("robot.png")
+robot = pygame.image.load("metallic.png")
 robot = pygame.transform.scale(robot, (20, 20))
 
 bg_color = (125, 125, 125)
