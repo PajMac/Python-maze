@@ -95,7 +95,7 @@ def main():
         pygame.event.pump()
 
 
-    def backtracking(x, y):     #zde je doplňující funkce, která umožní, že vybarvování může skočit zpět na vybarvené pole, pokud narazilo na slepou uličku
+    def backtracking(x, y):     #zde je doplňující funkce, která umožní, že vybarvování může skočit zpět na vybarvené pole, pokud narazilo na slepou uličku, přebarvuje zpět na bílou barvu
         pygame.draw.rect(screen, white, (x + 1, y + 1, 18, 18), 0)
         time.sleep(0.05)
         pygame.display.update()
@@ -112,8 +112,7 @@ def main():
         pygame.display.update()
         pygame.event.pump()
 
-    # V této funkci si necháme vykreslit bludiště
-    def vykresleni(x, y):
+    def vykresleni(x, y):    # V této funkci si necháme vykreslit bludiště
         bunka_setup(x, y)
         stack.append((x, y))
         visited.append((x, y))
@@ -167,7 +166,7 @@ def main():
             reseni(x, y)
         time.sleep(.1)
 
-    x, y = 20, 20  # Zde je zadaná počáteční pozice mřížky
+    x, y = 20, 20
     grid_setup(20, 20, 20)
     vykresleni(x, y)
     cesta_zpet((20 * slozitost), (20 * slozitost) + 20)
