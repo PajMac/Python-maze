@@ -52,11 +52,10 @@ def main():
     # vytvoření mřížky
     def grid_setup(x, y, w):
 
-        for i in range(1, int(slozitost) + 1):  # generuje bludiště 20x20
-            x = 20  # zadani x souradnic na zacatek
-            y = y + x  # začátek nové řady
+        for i in range(1, int(slozitost) + 1):
+            x = 20
+            y = y + x
             for j in range(1, int(slozitost) + 1):
-                # pygame kod
                 pygame.draw.line(screen, black, [x, y], [x + w, y])  # vršek bunky
                 pygame.draw.line(screen, black, [x + w, y], [x + w, y + w])  # pravá strana
                 pygame.draw.line(screen, black, [x + w, y + w], [x, y + w])  # spodek buňky
@@ -65,8 +64,7 @@ def main():
                 x = x + 20
 
 
-# Zde definuje pohyby bludištěm, vyplňujeme mřížku
-
+# Zde definujeme pohyby bludištěm, vyplňujeme mřížku
     def nahoru(x, y):
         pygame.draw.rect(screen, white, (x + 1, y - w + 1, 19, 39), 0)
         pygame.display.update()
@@ -97,14 +95,14 @@ def main():
         pygame.event.pump()
 
 
-    def backtracking(x, y): # zde je doplňující funkce, která umožní, že vybarvování může skočit zpět na vybarvené pole, pokud narazilo na slepou uličku
+    def backtracking(x, y):     #zde je doplňující funkce, která umožní, že vybarvování může skočit zpět na vybarvené pole, pokud narazilo na slepou uličku
         pygame.draw.rect(screen, white, (x + 1, y + 1, 18, 18), 0)
         time.sleep(0.05)
         pygame.display.update()
         pygame.event.pump()
 
 
-    def reseni(x, y):
+    def reseni(x, y): #vykreslí správnou cestu z bludiště
         screen.blit(robot, (x, y))
         pygame.display.update()
         pygame.event.pump()
@@ -116,7 +114,7 @@ def main():
 
     # V této funkci si necháme vykreslit bludiště
     def vykresleni(x, y):
-        bunka_setup(x, y)  # počátek bludiště
+        bunka_setup(x, y)
         stack.append((x, y))
         visited.append((x, y))
 
@@ -160,9 +158,9 @@ def main():
             else:
                 x, y = stack.pop()
                 bunka_setup(x, y)
-                backtracking(x, y)  # změna barvy na backtracking
+                backtracking(x, y)
 
-    def cesta_zpet(x, y): # zde robot hledá cestu zpět na začátek
+    def cesta_zpet(x, y): #zde robot hledá cestu zpět na začátek
         reseni(x, y)
         while (x, y) != (20, 20):  # Zde necháme hledat cestu zpět, dokud nejsou na počáteční pozici
             x, y = solution[x, y]

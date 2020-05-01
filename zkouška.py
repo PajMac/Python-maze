@@ -23,10 +23,10 @@ pygame.init()
 pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
-image = pygame.image.load("electronics.png")
+image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
 
-robot = pygame.image.load("electronics.png")
+robot = pygame.image.load("robot_PNG.png")
 robot = pygame.transform.scale(robot, (20, 20))
 
 bg_color = (125, 125, 125)
@@ -47,8 +47,6 @@ grid = []
 visited = []
 stack = []
 solution = {}
-robotX = 0
-robotY = 0
 smer = []
 
 def main():
@@ -111,32 +109,38 @@ def main():
         time.sleep(0.1)
         #screen.fill((255, 255, 255), (x + 5, y + 5, 18, 18))
         pocet_kroku = len(smer)
-        print(pocet_kroku)
         for i in range(pocet_kroku):
             if i != pocet_kroku - 1:
                 p1 = smer[i][0]
                 p2 = smer[i + 1][0]
 
                 if i != pocet_kroku - 1 and int(p1) == int(p2):
-                    pygame.draw.line(screen, black, [x + 10, y + 10], [x - 10, y + 10], 1)
+                    pygame.draw.line(screen, black, [x + 10, y + 20], [x + 10, y - 20], 1)
+                    pygame.display.update()
 
-                if i != pocet_kroku - 1 and int(p1) != int(p2):
-                    pygame.draw.line(screen, black, [x + 10, y + 10], [x + 10, y - 20], 1)
+                elif i != pocet_kroku - 1 and int(p1) != int(p2):
+                    pygame.draw.line(screen, black, [x + 20, y + 10], [x - 20, y + 10], 1)
+                    pygame.display.update()
 
                 if i == 0 and int(p1) == int(p2):
-                    pygame.draw.line(screen, black, [x + 10, y + 10], [x - 10, y + 10], 1)
+                    pygame.draw.line(screen, black, [x + 10, y + 20], [x + 10, y - 20], 1)
+                    pygame.display.update()
 
-                if i == 0 and int(p1) != int(p2):
-                    pygame.draw.line(screen, black, [x + 10, y + 10], [x + 10, y - 20], 1)
+                elif i == 0 and int(p1) != int(p2):
+                    pygame.draw.line(screen, black, [x + 20, y + 10], [x - 20, y + 10], 1)
+                    pygame.display.update()
 
                 if i == pocet_kroku and int(p1) == int(p2):
-                    pygame.draw.line(screen, black, [x + 10, y + 10], [x + 10, y - 20], 1)
+                    pygame.draw.line(screen, black, [x + 10, y + 20], [x + 10, y - 20], 1)
+                    pygame.display.update()
 
-                if i == pocet_kroku and int(p1) != int(p2):
-                    pygame.draw.line(screen, black, [x + 10, y + 10], [x - 10, y + 10], 1)
+                elif i == pocet_kroku and int(p1) != int(p2):
+                    pygame.draw.line(screen, black, [x + 20, y + 10], [x - 20, y + 10], 1)
+                    pygame.display.update()
+
 
         #fill(x, y)
-        pygame.display.update()
+        #pygame.display.update()
         pygame.event.pump()
 
 
