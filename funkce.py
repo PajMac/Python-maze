@@ -57,7 +57,7 @@ def main():
             y = y + x  # začátek nové řady
             for j in range(1, int(slozitost) + 1):
                 # pygame kod
-                pygame.draw.line(screen, black, [x, y], [x + w, y])  # vrsek bunky
+                pygame.draw.line(screen, black, [x, y], [x + w, y])  # vršek bunky
                 pygame.draw.line(screen, black, [x + w, y], [x + w, y + w])  # pravá strana
                 pygame.draw.line(screen, black, [x + w, y + w], [x, y + w])  # spodek buňky
                 pygame.draw.line(screen, black, [x, y + w], [x, y])  # levá strana buňky
@@ -65,7 +65,8 @@ def main():
                 x = x + 20
 
 
-# pohyby
+# Zde definuje pohyby bludištěm, vyplňujeme mřížku
+
     def nahoru(x, y):
         pygame.draw.rect(screen, white, (x + 1, y - w + 1, 19, 39), 0)
         pygame.display.update()
@@ -96,7 +97,7 @@ def main():
         pygame.event.pump()
 
 
-    def backtracking(x, y):
+    def backtracking(x, y): # zde je doplňující funkce, která umožní, že vybarvování může skočit zpět na vybarvené pole, pokud narazilo na slepou uličku
         pygame.draw.rect(screen, white, (x + 1, y + 1, 18, 18), 0)
         time.sleep(0.05)
         pygame.display.update()
@@ -113,7 +114,7 @@ def main():
         pygame.display.update()
         pygame.event.pump()
 
-    # vykreslení bludiště
+    # V této funkci si necháme vykreslit bludiště
     def vykresleni(x, y):
         bunka_setup(x, y)  # počátek bludiště
         stack.append((x, y))
@@ -161,14 +162,14 @@ def main():
                 bunka_setup(x, y)
                 backtracking(x, y)  # změna barvy na backtracking
 
-    def cesta_zpet(x, y):
+    def cesta_zpet(x, y): # zde robot hledá cestu zpět na začátek
         reseni(x, y)
-        while (x, y) != (20, 20):  # dokud nejsou na počáteční pozici
+        while (x, y) != (20, 20):  # Zde necháme hledat cestu zpět, dokud nejsou na počáteční pozici
             x, y = solution[x, y]
             reseni(x, y)
         time.sleep(.1)
 
-    x, y = 20, 20  # počáteční pozice mřížky
+    x, y = 20, 20  # Zde je zadaná počáteční pozice mřížky
     grid_setup(20, 20, 20)
     vykresleni(x, y)
     cesta_zpet((20 * slozitost), (20 * slozitost) + 20)
