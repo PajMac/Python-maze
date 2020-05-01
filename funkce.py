@@ -110,6 +110,8 @@ def main():
         time.sleep(0.1)
         screen.fill((255, 255, 255), (x + 1, y + 1, 18, 18))
         pygame.draw.rect(screen, green, (x + 10, y + 10, 5, 5))
+        if (x, y) == (20, 20):
+            screen.blit(robot(x, y))
         pygame.display.update()
         pygame.event.pump()
 
