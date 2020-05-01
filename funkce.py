@@ -20,9 +20,7 @@ yellow = (255, 255, 0)
 black = (0, 0, 0)
 
 pygame.init()
-pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
-clock = pygame.time.Clock()
 image = pygame.image.load("robot_PNG.png")
 pygame.display.set_caption("Robot maze")
 
@@ -111,17 +109,9 @@ def main():
         pygame.event.pump()
         time.sleep(0.1)
         screen.fill((255, 255, 255), (x + 1, y + 1, 18, 18))
-        #pygame.draw.line(screen, green, [x + 10, y + 10], [x, y], 3)
         pygame.draw.rect(screen, green, (x + 10, y + 10, 5, 5))
-        #fill(x, y)
         pygame.display.update()
         pygame.event.pump()
-
-
-    def fill(x ,y):
-        time.sleep(0.2)
-        screen.fill((255, 255, 255), (x + 5, y + 5, 18, 18))
-        pygame.display.update()
 
 
     # vykreslení bludiště
