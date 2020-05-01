@@ -1,8 +1,8 @@
-import funkce
+import zkouška
 import pygame
 
 
-funkce.main()
+zkouška.main()
 running = True
 while running:
     for event in pygame.event.get():
