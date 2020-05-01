@@ -105,7 +105,7 @@ def main():
 
 
     def reseni(x, y):
-        #screen.blit(robot, (x, y))
+        screen.blit(robot, (x, y))
         time.sleep(0.1)
         #screen.fill((255, 255, 255), (x + 5, y + 5, 18, 18))
         pocet_kroku = len(smer)
@@ -118,7 +118,7 @@ def main():
                     pygame.draw.line(screen, black, [x + 10, y + 20], [x + 10, y - 20], 1)
                     pygame.display.update()
 
-                elif i != pocet_kroku - 1 and int(p1) != int(p2):
+                if i != pocet_kroku - 1 and int(p1) != int(p2):
                     pygame.draw.line(screen, black, [x + 20, y + 10], [x - 20, y + 10], 1)
                     pygame.display.update()
 
@@ -126,7 +126,7 @@ def main():
                     pygame.draw.line(screen, black, [x + 10, y + 20], [x + 10, y - 20], 1)
                     pygame.display.update()
 
-                elif i == 0 and int(p1) != int(p2):
+                if i == 0 and int(p1) != int(p2):
                     pygame.draw.line(screen, black, [x + 20, y + 10], [x - 20, y + 10], 1)
                     pygame.display.update()
 
@@ -134,7 +134,7 @@ def main():
                     pygame.draw.line(screen, black, [x + 10, y + 20], [x + 10, y - 20], 1)
                     pygame.display.update()
 
-                elif i == pocet_kroku and int(p1) != int(p2):
+                if i == pocet_kroku and int(p1) != int(p2):
                     pygame.draw.line(screen, black, [x + 20, y + 10], [x - 20, y + 10], 1)
                     pygame.display.update()
 
