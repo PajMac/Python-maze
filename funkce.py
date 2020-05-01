@@ -107,9 +107,12 @@ def main():
 
     def reseni(x, y):
         screen.blit(robot, (x, y))
+        pygame.display.update()
+        pygame.event.pump()
         time.sleep(0.1)
-        #screen.fill((255, 255, 255), (x + 5, y + 5, 18, 18))
-        pygame.draw.line(screen, black, [x + 10, y + 10], [x + 10, y - 20])
+        screen.fill((255, 255, 255), (x + 1, y + 1, 18, 18))
+        #pygame.draw.line(screen, green, [x + 10, y + 10], [x, y], 3)
+        pygame.draw.rect(screen, green, (x + 10, y + 10, 5, 5))
         #fill(x, y)
         pygame.display.update()
         pygame.event.pump()
