@@ -23,10 +23,10 @@ pygame.init()
 pygame.mixer.init()
 screen = pygame.display.set_mode((sirka, vyska))
 clock = pygame.time.Clock()
-image = pygame.image.load("robot_PNG.png")
+image = pygame.image.load("electronics.png")
 pygame.display.set_caption("Robot maze")
 
-robot = pygame.image.load("robot_PNG.png")
+robot = pygame.image.load("electronics.png")
 robot = pygame.transform.scale(robot, (20, 20))
 
 bg_color = (125, 125, 125)
